@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Spring Framework Guru</title>
+</head>
+<body>
+	<h1>Author List</h1>
+	
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Books</th>
+		</tr>
+		<tr th:each="author : ${authors}">
+			<td th:text="${author.id}">1</td>
+			<td th:text="${author.firstName} + ' ' + ${author.lastName}">著者名</td>
+			<td>
+				<div th:each="book : ${author.books}">
+					<p th:text="${book.title} + ' ' + ${book.isbn} + ' ' + ${book.publisher.name}"></p>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>
